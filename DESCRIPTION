@@ -1,0 +1,11 @@
+Package: APAstyler
+Type: Package
+Title: Create APA-formatted R output, with support for LaTeX and rMarkdown. 
+Version: 0.1.0
+Authors@R: person("Darrell","Penta", role=c("aut","cre"), email = "darrellpenta@gmail.com")
+Maintainer: Darrell J. Penta <darrellpenta@gmail.com>
+Description: A collection of tools for researchers/students who have to follow the notorious APA formatting guidelines. Helps with p-values, etc.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
