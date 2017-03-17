@@ -1,6 +1,6 @@
 Package: APAstyler
 Type: Package
-Title: Create APA-formatted R output, with support for LaTeX and rMarkdown. 
+Title: Create APA-formatted R output, with support for LaTeX and rMarkdown 
 Version: 0.1.0
 Authors@R: person("Darrell","Penta", role=c("aut","cre"), email = "darrellpenta@gmail.com")
 Maintainer: Darrell J. Penta <darrellpenta@gmail.com>
@@ -9,3 +9,5 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Imports: formattable,
+    stringr

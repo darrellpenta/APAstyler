@@ -2,7 +2,7 @@
 % Please edit documentation in R/APA_stat-function.R
 \name{APA_stat}
 \alias{APA_stat}
-\title{Format a statistic.}
+\title{Format a statistic}
 \usage{
 APA_stat(stat, pre_stat = NULL, post_stat = NULL, snip = FALSE,
   digit = 2, ...)
@@ -12,9 +12,9 @@ APA_stat(stat, pre_stat = NULL, post_stat = NULL, snip = FALSE,
 
 \item{pre_stat}{A string to be prepended to you number. Default is \code{NULL}.}
 
-\item{post_stat}{A string to be appended to your number. Default is null.}
+\item{post_stat}{A string to be appended to your number. Default is \code{NULL}.}
 
-\item{snip}{Do you want to snip leading zero from a number bounded by 1/-1? Defaults to \code{FALSE}. Use this only when you are sure your numbers cannot be larger than |1|.}
+\item{snip}{Do you want to snip a leading zero from a number bounded by 1? Defaults to \code{FALSE}.}
 
 \item{digit}{How many significance digits (defaults to 2, which is suitable for many APA applications)? Passed to \code{\link[formattable]{formattable}}.}
 

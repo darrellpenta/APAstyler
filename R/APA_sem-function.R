@@ -1,6 +1,5 @@
 #' Return a Std. Error of the Mean (SEM) value in APA style
 #'
-
 #' \code{APA_sem} takes a number (numeric or character) and returns it with appropriate APA formatting, with options for print-friendly labelling.
 #'
 #' @param stat A number, supplied as a numeric or character value.

@@ -1,11 +1,10 @@
-#' Format a statistic.
+#' Format a statistic
 #'
-
 #' \code{APA_stat} allows you to append your own labels to a statistic.
 #' @param stat A number, supplied as a numeric or character value.
 #' @param pre_stat A string to be prepended to you number. Default is \code{NULL}.
-#' @param post_stat A string to be appended to your number. Default is null.
-#' @param snip Do you want to snip leading zero from a number bounded by 1/-1? Defaults to \code{FALSE}. Use this only when you are sure your numbers cannot be larger than |1|.
+#' @param post_stat A string to be appended to your number. Default is \code{NULL}.
+#' @param snip Do you want to snip a leading zero from a number bounded by 1? Defaults to \code{FALSE}.
 #' @param digit How many significance digits (defaults to 2, which is suitable for many APA applications)? Passed to \code{\link[formattable]{formattable}}.
 #' @param ... Optional arguments to be passed to \code{\link[formattable]{formattable}} or \code{paste0}
 #' @return \code{stat} as a string with APA formatting and/or other options applied.
@@ -35,7 +34,7 @@ APA_stat = function(stat,
           paste0(
             ifelse(is.null(pre_stat),NULL,pre_stat),
             ifelse(isTRUE(snip),
-                   APAstyler::snip(
+                   snip(
                      formattable::formattable(
                        stat,
                        digits=digit,
@@ -47,7 +46,7 @@ APA_stat = function(stat,
                      ...)
                    ),
               ifelse(
-                is.null(pos_stat),
+                is.null(post_stat),
                 NULL,
                 post_stat)
                    )

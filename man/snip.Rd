@@ -2,30 +2,51 @@
 % Please edit documentation in R/snip-function.R
 \name{snip}
 \alias{snip}
-\title{Remove leading zero and/or trailing zero from a number.}
+\title{Remove leading zero and/or trailing zero from a statistic}
 \usage{
-snip(x, lead_zero = FALSE, trail_zero)
+snip(x, lead = NULL, trail = 3)
 }
 \arguments{
 \item{x}{A numeric value, coercible to a character.}
 
-\item{lead_zero}{Remove a zero to the left of the decimal for bounded numbers? Default is \code{FALSE}.}
+\item{lead}{Optional number of zeros to remove from the left of the decimal. Default is \code{NULL}.
+See \strong{Leading Zero} for details.}
 
-\item{trail_zero}{= Optional. Set minimum number of digits to the right of the decimal to keep, and then remove the next digit if it is a zero, or else preserve it; if \code{trail_zero} > the actual number of digits  of \code{x}, returns \code{x} unchanged.}
+\item{trail}{Position for evaluating whether a trailing zero should be dropped? Defaults to \code{3}.
+See \strong{Trailing Zero} for details.}
 }
 \value{
-\code{x} as a string with leading and/or trailing zero removed
+\code{x} as a string with leading and/or trailing zero removed.
 }
 \description{
-Useful for APA-style reporting of numbers bounded by 1/-1 (e.g., converts 0.23 to .23); can aslo be used to drop a trailing zero (e.g., converts 2.270 to 2.27) . NOTE: that this converts the number to a character vector and is not guaranteed to produce the appropriate result in all cases.
+Use \code{snip()} if you need to trim a leading zero (left of decimal) or trailing zero (right of decimal) from a value (esp. for reporting stats in APA format).
 }
+\section{Leading zero}{
+
+ For values that cannot exceed 1,  (e.g., \emph{p} values), \strong{\href{http://blog.apastyle.org/apastyle/statistics/}{APA}} recommends removing the zero to the left of the decimal.
+
+ For example \emph{p} = 0.023 should be reported as \emph{p} = .023. In this case, \code{snip(0.023), lead = 1} would work.
+
+ If, for some reason, you need to snip more than one zero, you can specify the number.
+
+  Only exact matches (e.g., 1 or 2 "0"s, set by \code{lead}) for \code{x < 1} will be snipped; otherwise, the value to the left of the decimal is left unchanged.
+}
+
+\section{Trailing zero}{
+
+ The \strong{\href{http://blog.apastyle.org/apastyle/statistics/}{APA}} recommends reporting statistics with decimal fractions rounded to two or three places (in most circumstances).
+
+ When \code{trail = 3}, the default behavior is to assume that a minimium of 2 places after the decimal should be preserved under all conditions. This basically sets the position being evaluated \strong{= 3}, and assumes the APA-recommended floor threshold of .001: If there is a zero in this position, the zero is snipped.
+
+ See examples and \code{\link{APA_p}}.
+}
+
 \examples{
 
 # Drop leading zero
-cat(snip("0.2202",lead_zero = TRUE))
+cat(snip("0.22",1))
 
-# Drop leading zero, keep a minimum of 2 digits to the right, or drop if 0
-cat(snip("0.2202",lead_zero = TRUE,2))
-cat(snip("0.2230",lead_zero = TRUE,2))
+# Drop trailing zero
+cat(snip("0.220"))
 
 }
