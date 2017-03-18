@@ -3,7 +3,7 @@
 #' \code{APA_p} takes a number (numeric or character) and returns it with appropriate APA formatting, with options for print-friendly labelling.
 #'
 #' @param stat A number, supplied as a numeric or character value.
-#' @param digit How many significance digits (defaults to 3)?
+#' @param digit How many significance digits? Default = \code{3}
 #'
 #' Passed to \code{\link[formattable]{formattable}} with options \code{format = "f"} and \code{digits = digit}.
 #'
@@ -27,6 +27,17 @@ APA_p = function(stat,
                  digit = 3,
                  not_range = TRUE,
                  rmd_format = TRUE) {
+
+if(is.missing(digit)){
+  digit=3
+}
+if(is.missing(not_range)){
+  not_range = TRUE
+}
+if(is.missing(rmd_format)){
+  rmd_format=TRUE
+}
+
   stat =
     ifelse(is.character(stat),
            as.numeric(stat),

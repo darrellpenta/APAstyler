@@ -9,7 +9,7 @@ APA_p(stat, digit = 3, not_range = TRUE, rmd_format = TRUE)
 \arguments{
 \item{stat}{A number, supplied as a numeric or character value.}
 
-\item{digit}{How many significance digits (defaults to 3)?
+\item{digit}{How many significance digits? Default = \code{3}
 
 Passed to \code{\link[formattable]{formattable}} with options \code{format = "f"} and \code{digits = digit}.}
 
