@@ -4,7 +4,7 @@
 \alias{APA_p}
 \title{APA style options for \emph{p} values}
 \usage{
-APA_p(stat, digit = 3, not_range = FALSE, rmd_format = TRUE)
+APA_p(stat, digit = 3, not_range = TRUE, rmd_format = TRUE)
 }
 \arguments{
 \item{stat}{A number, supplied as a numeric or character value.}
@@ -13,7 +13,7 @@ APA_p(stat, digit = 3, not_range = FALSE, rmd_format = TRUE)
 
 Passed to \code{\link[formattable]{formattable}} with options \code{format = "f"} and \code{digits = digit}.}
 
-\item{not_range}{Should full \emph{p} values be returned? Default is \code{TRUE}. \code{FALSE} returns numbers with greater than/ less than indicators and no leading zeros.
+\item{not_range}{Should full \emph{p} values be returned instead of significance ranges? Default is \code{TRUE}. \code{FALSE} returns numbers with greater than/ less than indicators and no leading zeros.
 See \strong{P values}.}
 
 \item{rmd_format}{Should \emph{p} value be return with a Latex/rMarkdown-friendly label and equal sign prepended (e.g., \strong{"\\\\textit{p} $=$ .012"}).

@@ -18,34 +18,34 @@ APA_f = function(stat,
 
   if (missing(type)) {
     stat <-
-      paste0(formattable::formattable(stat,
+      paste0(snip(formattable::formattable(stat,
                                       format = "f",
-                                      digits = digit))
+                                      digits = digit)))
   } else{
     if (match.arg(type) == "f") {
       stat <-
         paste0("\\textit{F} $=$ ",
-               formattable::formattable(stat,
+               snip(formattable::formattable(stat,
                                         format = "f",
-                                        digits = digit))
+                                        digits = digit)))
     } else{
       if (match.arg(type) == "f1") {
         stat <-
           paste0(
             "\\textit{F$_1$} $=$ ",
-            formattable::formattable(stat,
+            snip(formattable::formattable(stat,
                                      format = "f",
                                      digits = digit)
-          )
+          ))
       } else{
         if (match.arg(type) == "f2") {
           stat <-
             paste0(
               "\\textit{F$_2$} $=$ ",
-              formattable::formattable(stat,
+              snip(formattable::formattable(stat,
                                        format = "f",
                                        digits = digit)
-            )
+            ))
         }
       }
     }

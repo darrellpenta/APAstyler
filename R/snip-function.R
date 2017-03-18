@@ -39,6 +39,8 @@
 snip = function(x,
                 lead = NULL,
                 trail = 3) {
+  x <-
+ifelse(formattable::is.formattable(x),as.character(x[1]),x)
   x_left <-
     strsplit(sub('0+$', '', as.character(x)), ".", fixed = TRUE)[[1]][[1]]
   x_right <-
