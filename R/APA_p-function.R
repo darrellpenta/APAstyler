@@ -28,13 +28,13 @@ APA_p = function(stat,
                  not_range = TRUE,
                  rmd_format = TRUE) {
 
-if(is.missing(digit)){
+if(missing(digit)){
   digit=3
 }
-if(is.missing(not_range)){
+if(missing(not_range)){
   not_range = TRUE
 }
-if(is.missing(rmd_format)){
+if(missing(rmd_format)){
   rmd_format=TRUE
 }
 
