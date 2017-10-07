@@ -38,6 +38,8 @@ if(missing(rmd_format)){
   rmd_format=TRUE
 }
 
+
+
   stat =
     ifelse(is.character(stat),
            as.numeric(stat),
